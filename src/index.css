@@ -39,3 +39,89 @@ a {
 .hover-scale:hover {
   transform: scale(1.15);
 }
+/*the timeline */
+.timeline-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  flex-wrap: nowrap;
+  position: relative;
+  gap: 2rem;
+}
+
+.timeline-item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  position: relative;
+}
+
+.timeline-card {
+  width: 200px;
+  height: 200px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding: 1.5rem;
+  border-radius: 15px;
+  background-color: white;
+  box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+}
+
+.timeline-icon-container {
+  position: relative;
+  margin-top: 1rem;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.timeline-icon {
+  width: 60px;
+  height: 60px;
+  z-index: 2;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+/* Horizontal connector line */
+.timeline-connector {
+  position: absolute;
+  top: 50%;
+  left: 100%;          /* start at right edge of current icon */
+  height: 4px;
+  width: calc(100% + 2rem); /* distance to next card */
+  background-color: black;
+  transform: translateY(-50%);
+  z-index: 1;
+}
+
+/* Slide-up animation */
+@keyframes slideUp {
+  0% { opacity: 0; transform: translateY(30px); }
+  100% { opacity: 1; transform: translateY(0); }
+}
+.animate-slide-up {
+  animation: slideUp 0.8s ease forwards;
+}
+
+/* Mobile view - vertical timeline */
+@media (max-width: 768px) {
+  .timeline-container {
+    flex-direction: column;
+    align-items: center;
+    gap: 3rem;
+  }
+
+  .timeline-connector {
+    width: 4px;
+    height: 80px;       /* distance to next card */
+    top: 100%;          /* start from bottom of current icon */
+    left: 50%;          /* center horizontally */
+    transform: translateX(-50%);
+  }
+}
+
+

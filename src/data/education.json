@@ -1,0 +1,22 @@
+[
+  {
+    "degree": "Bachelor of Technology (B.Tech)",
+    "institution": "XYZ University",
+    "year": "2021 - 2025"
+  },
+  {
+    "degree": "Senior Secondary (12th Grade)",
+    "institution": "ABC School",
+    "year": "2019 - 2021"
+  },
+  {
+    "degree": "Secondary (10th Grade)",
+    "institution": "High Mount School",
+    "year": "2018 - 2019"
+  },
+  {
+    "degree": "Primary Education",
+    "institution": "Little Flower Academy",
+    "year": "2009 - 2018"
+  }
+]

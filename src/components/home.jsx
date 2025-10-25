@@ -2,8 +2,6 @@ import React from "react";
 import "bootstrap/dist/css/bootstrap.min.css";
 import "bootstrap-icons/font/bootstrap-icons.css";
 import "../index.css"; // Custom CSS for animations
-
-// Import JSON directly from src/data
 import homeData from "../data/home.json";
 
 function Home() {
@@ -13,27 +11,40 @@ function Home() {
             className="d-flex align-items-center bg-white text-dark py-5"
         >
             <div className="container py-3">
-                <div className="row align-items-center gy-4">
+                <div className="row align-items-center gy-5">
                     {/* Left side - Profile Image */}
                     <div className="col-md-5 d-flex justify-content-center animate-fade-up">
                         <img
                             src="/assets/profile.png"
                             alt="Profile"
-                            className="img-fluid rounded-circle shadow-lg"
-                            style={{ maxWidth: "75%", maxHeight: "55%" }}
+                            className="img-fluid shadow-lg"
+                            style={{
+                                width: "450px",          // base size for desktop
+                                height: "450px",         // keep equal width & height
+                                maxWidth: "80%",         // responsive scaling
+                                aspectRatio: "1 / 1",    // maintains perfect square even when resized
+                                borderRadius: "50%",     // makes it a perfect circle
+                                //objectFit: "cover",  
+                                boxShadow:"inherit"    // ensures image fits without distortion
+                            }}
                         />
+
                     </div>
+
                     {/* Right side - Info */}
                     <div className="col-md-7 text-center text-md-start animate-fade-up delay-1s">
                         <h1 className="fw-bold mb-2" style={{ fontSize: "3rem" }}>
                             {homeData.name}
                         </h1>
-                        <h4 className="text-muted mb-3" style={{ fontSize: "1.8rem" }}>
+                        <h4 className="text-muted mb-3" style={{ fontSize: "1.5rem" }}>
                             {homeData.title}
                         </h4>
+                        <h5 className="text-muted mb-4" style={{ fontSize: "1.2rem" }}>
+                            {homeData.description}
+                        </h5>
 
                         {/* Social Icons */}
-                        <div className="d-flex justify-content-center justify-content-md-start gap-3 mb-3 fs-3">
+                        <div className="d-flex justify-content-center justify-content-md-start gap-3 mb-4 fs-3">
                             {homeData.github && (
                                 <a
                                     href={homeData.github}
