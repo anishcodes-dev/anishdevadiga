@@ -34,7 +34,7 @@ function Navbar() {
                 "Projects",
                 "Certificates",
               ].map((item) => (
-                <li className="nav-item mx-3" key={item}> {/* 👈 space between links */}
+                <li className="nav-item mx-3" key={item}>
                   <a
                     className="nav-link fw-medium text-dark nav-link-hover"
                     href={`#${item.toLowerCase()}`}
@@ -48,7 +48,7 @@ function Navbar() {
         </div>
       </nav>
 
-      {/* 👇 Inline hover + spacing styles */}
+      {/* 👇 Inline hover + responsive rule */}
       <style>
         {`
           .nav-link-hover {
@@ -58,23 +58,33 @@ function Navbar() {
             letter-spacing: 0.5px;
           }
 
-          .nav-link-hover::after {
-            content: "";
-            position: absolute;
-            bottom: 0;
-            left: 0;
-            width: 0%;
-            height: 2px;
-            background-color: black;
-            transition: width 0.3s ease;
+          /* Default hover underline (for desktop) */
+          @media (min-width: 992px) { /* lg and up */
+            .nav-link-hover::after {
+              content: "";
+              position: absolute;
+              bottom: 0;
+              left: 0;
+              width: 0%;
+              height: 2px;
+              background-color: black;
+              transition: width 0.3s ease;
+            }
+
+            .nav-link-hover:hover::after {
+              width: 100%;
+            }
+
+            .nav-link-hover:hover {
+              color: black !important;
+            }
           }
 
-          .nav-link-hover:hover::after {
-            width: 100%;
-          }
-
-          .nav-link-hover:hover {
-            color: black !important;
+          /* Remove underline for mobile (hamburger) */
+          @media (max-width: 991px) {
+            .nav-link-hover::after {
+              display: none !important;
+            }
           }
         `}
       </style>
