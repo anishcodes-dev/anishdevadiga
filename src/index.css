@@ -39,89 +39,117 @@ a {
 .hover-scale:hover {
   transform: scale(1.15);
 }
-/*the timeline */
-.timeline-container {
-  display: flex;
-  justify-content: space-between;
-  align-items: flex-start;
-  flex-wrap: nowrap;
+/*the timeline  education section*/
+/* Timeline Container */
+.timeline {
   position: relative;
-  gap: 2rem;
+  max-width: 700px;
+  margin: 0 auto;
+  padding: 2rem 0;
 }
 
+/* Vertical timeline line */
+.timeline-line {
+  position: absolute;
+  left: 50%;
+  top: 0;
+  width: 4px;
+  height: 100%;
+  background: linear-gradient(to bottom, #333, #aaa);
+  transform: translateX(-50%);
+  border-radius: 2px;
+  animation: growLine 1.5s ease-in-out;
+}
+
+/* Timeline items */
 .timeline-item {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
   position: relative;
+  width: 45%;
+  margin: 2rem 0;
+  transition: all 0.6s ease-in-out;
+  opacity: 0;
+  transform: translateY(30px);
 }
 
-.timeline-card {
-  width: 200px;
-  height: 200px;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  padding: 1.5rem;
-  border-radius: 15px;
-  background-color: white;
-  box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+/* Animation when items come into view */
+.timeline-item.visible {
+  opacity: 1;
+  transform: translateY(0);
 }
 
-.timeline-icon-container {
-  position: relative;
-  margin-top: 1rem;
-  width: 100%;
-  display: flex;
-  justify-content: center;
-  align-items: center;
+/* Left and right alignment */
+.timeline-item.left {
+  left: 0;
 }
 
+.timeline-item.right {
+  left: 55%;
+}
+
+/* Connecting lines */
+.timeline-item::after {
+  content: "";
+  position: absolute;
+  width: 25px;
+  height: 4px;
+  background: #333;
+  top: 50%;
+  transform: translateY(-50%);
+  transition: width 0.4s ease-in-out;
+}
+
+.timeline-item.left::after {
+  right: -25px;
+}
+
+.timeline-item.right::after {
+  left: -25px;
+}
+
+/* Timeline icon */
 .timeline-icon {
   width: 60px;
   height: 60px;
-  z-index: 2;
-  display: flex;
-  justify-content: center;
-  align-items: center;
+  transition: transform 0.3s ease;
 }
 
-/* Horizontal connector line */
-.timeline-connector {
-  position: absolute;
-  top: 50%;
-  left: 100%;          /* start at right edge of current icon */
-  height: 4px;
-  width: calc(100% + 2rem); /* distance to next card */
-  background-color: black;
-  transform: translateY(-50%);
-  z-index: 1;
+.timeline-item:hover .timeline-icon {
+  transform: scale(1.1);
 }
 
-/* Slide-up animation */
-@keyframes slideUp {
-  0% { opacity: 0; transform: translateY(30px); }
-  100% { opacity: 1; transform: translateY(0); }
-}
-.animate-slide-up {
-  animation: slideUp 0.8s ease forwards;
+/* Grow animation for line */
+@keyframes growLine {
+  from {
+    height: 0;
+  }
+  to {
+    height: 100%;
+  }
 }
 
-/* Mobile view - vertical timeline */
+/* Animate cards in sequence */
+.animate-timeline {
+  opacity: 0;
+  transform: translateY(30px);
+  transition: opacity 0.8s ease, transform 0.8s ease;
+}
+
+.animate-timeline.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* Mobile view: single column vertical timeline */
 @media (max-width: 768px) {
-  .timeline-container {
-    flex-direction: column;
-    align-items: center;
-    gap: 3rem;
+  .timeline-line {
+    left: 10px;
   }
-
-  .timeline-connector {
-    width: 4px;
-    height: 80px;       /* distance to next card */
-    top: 100%;          /* start from bottom of current icon */
-    left: 50%;          /* center horizontally */
-    transform: translateX(-50%);
+  .timeline-item {
+    width: 100%;
+    left: 0 !important;
+    margin-left: 2rem;
+  }
+  .timeline-item::after {
+    left: -25px;
   }
 }
-
-

@@ -1,22 +1,22 @@
 [
   {
-    "degree": "Bachelor of Technology (B.Tech)",
-    "institution": "XYZ University",
-    "year": "2021 - 2025"
+    "degree": "Bachelor of Technology in Computer Science",
+    "institution": "ABC University",
+    "year": "2020 - 2024"
   },
   {
-    "degree": "Senior Secondary (12th Grade)",
-    "institution": "ABC School",
-    "year": "2019 - 2021"
+    "degree": "Senior Secondary (XII) - Science",
+    "institution": "XYZ High School",
+    "year": "2018 - 2020"
   },
   {
-    "degree": "Secondary (10th Grade)",
-    "institution": "High Mount School",
-    "year": "2018 - 2019"
+    "degree": "Secondary (X)",
+    "institution": "Sunrise Public School",
+    "year": "2016 - 2018"
   },
   {
-    "degree": "Primary Education",
-    "institution": "Little Flower Academy",
-    "year": "2009 - 2018"
+    "degree": "Primary School",
+    "institution": "Greenfield Academy",
+    "year": "2008 - 2016"
   }
 ]
