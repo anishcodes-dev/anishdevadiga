@@ -28,9 +28,10 @@ function Education() {
   return (
     <section id="education" className="bg-light text-dark py-5">
       <div className="container text-center position-relative">
-        <h2 className="fw-bold mb-5 animate-fade-up">Education</h2>
-
+        <h1 className="fw-bold mb-5 animate-fade-up">Education</h1>
         <div className="timeline position-relative mx-auto">
+          {/* Top dot */}
+          <div className="timeline-dot start-dot"></div>
           {educationData.map((edu, index) => (
             <div
               key={index}
@@ -47,6 +48,7 @@ function Education() {
             </div>
           ))}
           <div className="timeline-line"></div>
+          <div className="timeline-dot end-dot"></div>
         </div>
       </div>
     </section>

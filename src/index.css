@@ -5,18 +5,21 @@ body {
   background-color: #fff;
   color: #000;
   margin: 0;
-  padding-top: 70px; /* space for fixed navbar */
+  padding-top: 70px;
+  /* space for fixed navbar */
 }
 
 a {
   text-decoration: none;
 }
+
 /* Fade-in + upward animation */
 @keyframes fadeUp {
   0% {
     opacity: 0;
     transform: translateY(20px);
   }
+
   100% {
     opacity: 1;
     transform: translateY(0);
@@ -39,6 +42,73 @@ a {
 .hover-scale:hover {
   transform: scale(1.15);
 }
+
+/*home section*/
+/* Typewriter effect for name */
+.typewriter {
+  display: inline-block;
+  border-right: 3px solid black;
+  white-space: nowrap;
+  overflow: hidden;
+  width: fit-content;
+  animation: blink-caret 0.7s step-end infinite;
+}
+
+@keyframes blink-caret {
+  50% {
+    border-color: transparent;
+  }
+}
+
+/* Smooth fade-in animations */
+.fade-in {
+  opacity: 0;
+  transform: translateY(20px);
+  animation: fadeInUp 1s ease forwards;
+}
+
+.delay-1s {
+  animation-delay: 0.5s;
+}
+
+.delay-2s {
+  animation-delay: 1s;
+}
+
+.delay-3s {
+  animation-delay: 1.5s;
+}
+
+.delay-4s {
+  animation-delay: 2s;
+}
+
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Hover scale for icons */
+.hover-scale {
+  transition: transform 0.3s ease;
+}
+
+.hover-scale:hover {
+  transform: scale(1.2);
+}
+
+/* Enable Bootstrap tooltip */
+[data-bs-toggle="tooltip"] {
+  position: relative;
+}
+
 /*the timeline  education section*/
 /* Timeline Container */
 .timeline {
@@ -106,6 +176,27 @@ a {
   left: -25px;
 }
 
+/*timeline bottom line */
+/*timeline bottom line */
+.timeline-dot {
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 14px;
+  height: 14px;
+  background-color: #212529;
+  border-radius: 50%;
+  z-index: 1;
+}
+
+.start-dot {
+  top: 0;
+}
+
+.end-dot {
+  bottom: 0;
+}
+
 /* Timeline icon */
 .timeline-icon {
   width: 60px;
@@ -122,6 +213,7 @@ a {
   from {
     height: 0;
   }
+
   to {
     height: 100%;
   }
@@ -144,11 +236,13 @@ a {
   .timeline-line {
     left: 10px;
   }
+
   .timeline-item {
     width: 100%;
     left: 0 !important;
     margin-left: 2rem;
   }
+
   .timeline-item::after {
     left: -25px;
   }
