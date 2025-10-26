@@ -4,6 +4,7 @@ import Navbar from "./components/navbar";
 import Home from "./components/home";
 import Education from "./components/Education";
 import Experience from "./components/Experience";
+import Skills from "./components/Skills"
 
 import "bootstrap-icons/font/bootstrap-icons.css";
 import "bootstrap/dist/css/bootstrap.min.css";
@@ -24,6 +25,7 @@ function App() {
       <Home />
       <Education />
       <Experience/>
+      <Skills/>
     </>
   );
 }

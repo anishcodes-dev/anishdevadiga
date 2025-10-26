@@ -1,0 +1,72 @@
+[
+  {
+    "name": "JavaScript",
+    "icon": "bi-file-code-fill",
+    "category": "Programming Language"
+  },
+  {
+    "name": "Python",
+    "icon": "bi-file-code-fill",
+    "category": "Programming Language"
+  },
+  {
+    "name": "C++",
+    "icon": "bi-file-code-fill",
+    "category": "Programming Language"
+  },
+  {
+    "name": "Git",
+    "icon": "bi-git",
+    "category": "Version Control"
+  },
+  {
+    "name": "GitHub",
+    "icon": "bi-github",
+    "category": "Version Control"
+  },
+  {
+    "name": "PostgreSQL",
+    "icon": "bi-database-fill",
+    "category": "Database"
+  },
+  {
+    "name": "MongoDB",
+    "icon": "bi-database-fill",
+    "category": "Database"
+  },
+  {
+    "name": "Node.js",
+    "icon": "bi-server",
+    "category": "Development Stack"
+  },
+  {
+    "name": "React",
+    "icon": "bi-ui-checks-grid",
+    "category": "Development Stack"
+  },
+  {
+    "name": "Bootstrap",
+    "icon": "bi-bootstrap-fill",
+    "category": "Development Stack"
+  },
+  {
+    "name": "TensorFlow",
+    "icon": "bi-braces",
+    "category": "AI/ML Library"
+  },
+  {
+    "name": "PyTorch",
+    "icon": "bi-braces",
+    "category": "AI/ML Library"
+  },
+  {
+    "name": "scikit-learn",
+    "icon": "bi-braces",
+    "category": "AI/ML Library"
+  },
+  {
+    "name": "Pandas",
+    "icon": "bi-braces",
+    "category": "AI/ML Library"
+  }
+]
