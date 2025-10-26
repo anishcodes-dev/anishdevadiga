@@ -2,11 +2,11 @@ import React, { useEffect } from "react";
 import "bootstrap/dist/css/bootstrap.min.css";
 import "bootstrap-icons/font/bootstrap-icons.css";
 import "../index.css";
-import educationData from "../data/education.json";
+import experienceData from "../data/experience.json";
 
-function Education() {
+function Experience() {
   useEffect(() => {
-    const items = document.querySelectorAll(".education-card");
+    const items = document.querySelectorAll(".experience-card");
 
     const observer = new IntersectionObserver(
       (entries) => {
@@ -25,27 +25,27 @@ function Education() {
   }, []);
 
   return (
-    <section id="education" className="bg-light text-dark py-5">
+    <section id="experience" className="bg-white text-dark py-5">
       <div className="container">
         <h2 className="fw-bold text-center mb-5 animate-fade-up">
-          Education
+          Experience
         </h2>
 
         <div className="d-flex flex-row flex-wrap justify-content-center align-items-stretch gap-3">
-          {educationData.map((edu, index) => (
+          {experienceData.map((exp, index) => (
             <div
               key={index}
-              className="education-card animate-fade-up flex-fill"
+              className="experience-card animate-fade-up flex-fill"
               style={{ minWidth: "250px", maxWidth: "300px" }}
             >
               <div className="card shadow-lg h-100 border-0 d-flex flex-column justify-content-center align-items-center text-center card-hover p-3">
                 <div className="icon bg-dark text-white rounded-circle d-flex justify-content-center align-items-center mb-3">
-                  <i className="bi bi-mortarboard-fill fs-4"></i>
+                  <i className="bi bi-briefcase-fill fs-4"></i>
                 </div>
-                <h5 className="card-title mb-1">{edu.degree}</h5>
-                <small className="text-muted mb-2">{edu.institution}</small>
-                <p className="text-secondary mb-1">{edu.year}</p>
-                <p className="card-text">{edu.description}</p>
+                <h5 className="card-title mb-1">{exp.role}</h5>
+                <small className="text-muted mb-2">{exp.company}</small>
+                <p className="text-secondary mb-1">{exp.duration}</p>
+                <p className="card-text">{exp.description}</p>
               </div>
             </div>
           ))}
@@ -54,13 +54,13 @@ function Education() {
 
       <style>
         {`
-          .education-card {
+          .experience-card {
             opacity: 0;
             transform: translateY(50px);
             transition: all 0.8s ease-in-out;
           }
 
-          .education-card.visible {
+          .experience-card.visible {
             opacity: 1;
             transform: translateY(0);
           }
@@ -80,7 +80,7 @@ function Education() {
           }
 
           @media (max-width: 768px) {
-            .education-card {
+            .experience-card {
               min-width: 100%;
               transform: translateY(30px);
             }
@@ -91,4 +91,4 @@ function Education() {
   );
 }
 
-export default Education;
+export default Experience;

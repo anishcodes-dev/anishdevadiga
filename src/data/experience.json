@@ -1,0 +1,26 @@
+[
+  {
+    "role": "Frontend Developer",
+    "company": "Tech Solutions Inc.",
+    "duration": "Jan 2022 - Present",
+    "description": "Developed responsive web applications using React, Bootstrap, and modern JS frameworks."
+  },
+  {
+    "role": "Intern Developer",
+    "company": "Innovate Labs",
+    "duration": "Jun 2021 - Dec 2021",
+    "description": "Worked on small-scale web projects and learned agile development practices."
+  },
+  {
+    "role": "Freelance Developer",
+    "company": "Self-employed",
+    "duration": "Jan 2021 - May 2021",
+    "description": "Built personal projects and client websites using React and Node.js."
+  },
+  {
+    "role": "Teaching Assistant",
+    "company": "XYZ University",
+    "duration": "Aug 2020 - Dec 2020",
+    "description": "Assisted in teaching programming courses and grading assignments."
+  }
+]
