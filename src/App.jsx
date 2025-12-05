@@ -5,6 +5,8 @@ import Home from "./components/home";
 import Education from "./components/Education";
 import Experience from "./components/Experience";
 import Skills from "./components/Skills"
+import Projects from "./components/Project";
+import Certificates from "./components/Certificate";
 
 import "bootstrap-icons/font/bootstrap-icons.css";
 import "bootstrap/dist/css/bootstrap.min.css";
@@ -26,6 +28,8 @@ function App() {
       <Education />
       <Experience/>
       <Skills/>
+      <Projects/>
+      <Certificates/>
     </>
   );
 }

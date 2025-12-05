@@ -31,7 +31,7 @@ function Skills() {
   }, {});
 
   return (
-    <section id="skills" className="bg-light text-dark py-5">
+    <section id="skills" className=" text-dark py-5">
       <div className="container">
         <h2 className="fw-bold text-center mb-5 animate-fade-up">Skills</h2>
 

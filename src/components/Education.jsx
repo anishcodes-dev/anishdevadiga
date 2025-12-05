@@ -25,7 +25,7 @@ function Education() {
   }, []);
 
   return (
-    <section id="education" className="bg-light text-dark py-5">
+    <section id="education" className="bg-white text-dark py-5">
       <div className="container">
         <h2 className="fw-bold text-center mb-5 animate-fade-up">
           Education
@@ -38,14 +38,14 @@ function Education() {
               className="education-card animate-fade-up flex-fill"
               style={{ minWidth: "250px", maxWidth: "300px" }}
             >
-              <div className="card shadow-lg h-100 border-0 d-flex flex-column justify-content-center align-items-center text-center card-hover p-3">
+              <div className="card shadow-lg h-100 border-0 d-flex flex-column justify-content-center align-items-center text-center card-hover p-3 ">
                 <div className="icon bg-dark text-white rounded-circle d-flex justify-content-center align-items-center mb-3">
                   <i className="bi bi-mortarboard-fill fs-4"></i>
                 </div>
                 <h5 className="card-title mb-1">{edu.degree}</h5>
                 <small className="text-muted mb-2">{edu.institution}</small>
                 <p className="text-secondary mb-1">{edu.year}</p>
-                <p className="card-text">{edu.description}</p>
+                <p className="card-text small">{edu.marks}</p>
               </div>
             </div>
           ))}
@@ -77,6 +77,21 @@ function Education() {
           .icon {
             width: 50px;
             height: 50px;
+          }
+
+          .animate-fade-up {
+            animation: fadeUp 1s ease-in-out;
+          }
+
+          @keyframes fadeUp {
+            from {
+              opacity: 0;
+              transform: translateY(30px);
+            }
+            to {
+              opacity: 1;
+              transform: translateY(0);
+            }
           }
 
           @media (max-width: 768px) {

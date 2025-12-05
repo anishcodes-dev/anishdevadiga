@@ -2,21 +2,25 @@
   {
     "degree": "Secondary High School (10th Board)",
     "institution": "T.A.Pai English Medium High School",
-    "year": "2017 - 2018"
+    "year": "2017 - 2018",
+    "marks":"92.64%"
   },
   {
     "degree": "Senior Secondary (12th Board) - Science",
     "institution": "Mahatma Gandhi Memorial College",
-    "year": "2019 - 2020"
+    "year": "2019 - 2020",
+    "marks":"89%"
   },
   {
     "degree": "Bachelor of Computer Application",
     "institution": "Mahatma Gandhi Memorial College",
-    "year": "2020-2023"
+    "year": "2020-2023",
+    "marks":"9.02 cgpa"
   },
   {
     "degree": "Master of Computer Application",
     "institution": "Manipal Institute of Technology",
-    "year": "2023 - 2025"
+    "year": "2023 - 2025",
+    "marks":"8.03 cgpa"
   }
 ]
