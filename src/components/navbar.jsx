@@ -28,8 +28,8 @@ function Navbar() {
             <ul className="navbar-nav">
               {[
                 "Home",
-                "Education",
                 "Experience",
+                "Education",
                 "Skills",
                 "Projects",
                 "Certificates",

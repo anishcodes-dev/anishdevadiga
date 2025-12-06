@@ -38,7 +38,7 @@ function Experience() {
               className="experience-card animate-fade-up flex-fill"
               style={{ minWidth: "250px", maxWidth: "300px" }}
             >
-              <div className="card shadow-lg h-100 border-0 d-flex flex-column justify-content-center align-items-center text-center card-hover p-3">
+              <div className="card shadow-lg h-100 border-0 d-flex flex-column justify-content-center align-items-center text-center card-hover p-3 rounded-4">
                 <div className="icon bg-dark text-white rounded-circle d-flex justify-content-center align-items-center mb-3">
                   <i className="bi bi-briefcase-fill fs-4"></i>
                 </div>

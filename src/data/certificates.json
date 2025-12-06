@@ -1,32 +1,12 @@
 [
   {
-    "id": "cert-1",
-    "title": "Frontend Development Bootcamp",
-    "issuer": "Acme Academy",
-    "date": "April 2024",
-    "description": "Intensive hands-on course covering HTML, CSS, JavaScript and modern frameworks.",
-    "skills": ["HTML", "CSS", "JavaScript", "React"],
-    "pdf": "/certs/frontend-bootcamp.pdf",
-    "verification": "https://acme.example.com/verify/abc123"
-  },
-  {
-    "id": "cert-2",
-    "title": "Data Structures & Algorithms",
-    "issuer": "Algo Institute",
-    "date": "January 2023",
-    "description": "Course focused on algorithmic thinking, complexity analysis and problem solving.",
-    "skills": ["Algorithms", "Complexity", "Problem Solving"],
-    "pdf": "/certs/dsa-cert.pdf",
-    "verification": ""
-  },
-  {
-    "id": "cert-3",
-    "title": "Professional UX Design",
-    "issuer": "DesignWorks",
-    "date": "June 2022",
-    "description": "Certificate covering research, prototyping and usability testing.",
-    "skills": ["User Research", "Prototyping", "Usability"],
-    "pdf": "/certs/ux-design.pdf",
-    "verification": "https://designworks.example.com/verify/xyz789"
+    "id": 1,
+    "title": "JavaScript Foundations",
+    "description": "A foundational course covering modern JavaScript concepts including ES6, DOM manipulation, functions, and core programming principles.",
+    "issuer": "Coursera",
+    "date": "2024",
+    "icon": "book",
+    "pdf": "/assets/certificates/js-foundation.pdf",
+    "skills": ["JavaScript", "ES6", "DOM"]
   }
 ]

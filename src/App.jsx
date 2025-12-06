@@ -7,9 +7,11 @@ import Experience from "./components/Experience";
 import Skills from "./components/Skills"
 import Projects from "./components/Project";
 import Certificates from "./components/Certificate";
-
+import Footer  from "./components/Footer";
 import "bootstrap-icons/font/bootstrap-icons.css";
 import "bootstrap/dist/css/bootstrap.min.css";
+import '@coreui/icons/css/all.min.css';
+
 import "./index.css";
 
 function App() {
@@ -25,11 +27,12 @@ function App() {
     <>
       <Navbar />
       <Home />
-      <Education />
       <Experience/>
+      <Education />
       <Skills/>
       <Projects/>
       <Certificates/>
+      <Footer/>
     </>
   );
 }

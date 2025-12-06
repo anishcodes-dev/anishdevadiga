@@ -1,267 +1,159 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect } from "react";
 import "bootstrap/dist/css/bootstrap.min.css";
 import "bootstrap-icons/font/bootstrap-icons.css";
-import certificatesData from "../data/certificates.json"; // adjust path if needed
+import certificatesData from "../data/certificates.json";
 
 function Certificates() {
-  const [activePdf, setActivePdf] = useState(null);
-  const [activeTitle, setActiveTitle] = useState("");
-
   useEffect(() => {
     const items = document.querySelectorAll(".certificate-card");
     const observer = new IntersectionObserver(
       (entries) => {
         entries.forEach((entry) => {
-          if (entry.isIntersecting) entry.target.classList.add("visible");
+          if (entry.isIntersecting) entry.target.classList.add("show");
         });
       },
-      { threshold: 0.15 }
+      { threshold: 0.2 }
     );
 
-    items.forEach((it) => observer.observe(it));
+    items.forEach((item) => observer.observe(item));
+
+    // cleanup
     return () => observer.disconnect();
   }, []);
 
-  const openPdfModal = (url, title) => {
-    setActivePdf(url);
-    setActiveTitle(title || "Certificate");
-
-    // If Bootstrap JS bundle is loaded, show modal programmatically
-    const modalEl = document.getElementById("certModal");
-    if (modalEl && window.bootstrap) {
-      const modal = new window.bootstrap.Modal(modalEl);
-      modal.show();
-    }
-  };
-
-  const closePdfModal = () => {
-    setActivePdf(null);
-    setActiveTitle("");
-  };
-
   return (
-    <section id="certificates" className="bg-white text-dark py-5">
-      <div className="container">
-        <h2 className="fw-bold text-center mb-5 animate-fade-up">Certificates</h2>
+    <section className="container py-5 " id="certificates">
+      <h2 className="fw-bold text-center mb-5 animate-fade-up">Certificates</h2>
 
-        {/* SMALL: vertical scrollable column (visible only on xs-sm).
-            maxHeight so it becomes scrollable; scrollbar hidden via CSS. */}
-        <div
-          className="d-flex d-md-none flex-column overflow-auto vertical-scroller pb-2"
-          style={{
-            gap: "1rem",
-            WebkitOverflowScrolling: "touch",
-            maxHeight: "60vh",
-            paddingRight: "0.25rem",
-          }}
-          aria-label="Certificates list (vertical scroll)"
-        >
-          {certificatesData.map((c) => (
-            <div key={c.id} style={{ width: "100%" }}>
-              <article className="certificate-card card shadow-lg h-100 border-0 d-flex flex-column card-hover p-3">
-                <div className="d-flex align-items-start mb-3">
-                  <div className="icon bg-dark text-white rounded-circle d-flex justify-content-center align-items-center me-3">
-                    <i className="bi bi-award-fill fs-4" aria-hidden="true"></i>
-                  </div>
-                  <div className="flex-grow-1">
-                    <h5 className="card-title mb-1">
-                      {c.title}
-                      {c.verification && (
-                        <span className="ms-2" title="Has verification">
-                          <i className="bi bi-patch-check-fill text-primary" />
-                        </span>
-                      )}
-                    </h5>
-                    <small className="text-muted d-block">{c.issuer}</small>
-                    <div className="text-muted small">{c.date}</div>
-                  </div>
+      <div
+        className={`row g-4 justify-content-${
+          certificatesData.length < 4 ? "center" : "start"
+        }`}
+      >
+        {certificatesData.map((cert) => (
+          <div
+            key={cert.id}
+            className="col-md-3 col-sm-6 certificate-card fade-up"
+          >
+            <div className="card h-100 p-3 shadow-sm border-0 bg-white text-black rounded-4 card-inner">
+              <div className="d-flex align-items-center mb-3">
+                <i
+                  className={`bi bi-${cert.icon} me-2`}
+                  style={{ fontSize: "1.8rem", width: "30px" }}
+                ></i>
+                <h5 className="mb-0 fw-bold">{cert.title}</h5>
+              </div>
+
+              <p className="text-secondary small">{cert.description}</p>
+
+              <p className="mb-1">
+                <strong>Issuer:</strong> {cert.issuer}
+              </p>
+              <p className="mb-2">
+                <strong>Issued:</strong> {cert.date}
+              </p>
+
+              <div className="mb-3">
+                <strong>Skills:</strong>
+                <div className="d-flex flex-wrap gap-2 mt-2">
+                  {cert.skills.map((skill, index) => (
+                    <span key={index} className="badge bg-secondary">
+                      {skill}
+                    </span>
+                  ))}
                 </div>
+              </div>
 
-                {c.description && <p className="text-secondary small mb-2">{c.description}</p>}
-
-                <div className="mb-3">
-                  <small className="text-muted d-block mb-2">Skills learned</small>
-                  <div className="d-flex flex-wrap gap-1">
-                    {c.skills?.map((s) => (
-                      <span key={s} className="badge bg-secondary" style={{ fontSize: "0.75rem" }}>
-                        {s}
-                      </span>
-                    ))}
-                  </div>
-                </div>
-
-                <div className="mt-auto d-flex gap-2">
-                  {c.pdf ? (
-                    <button
-                      type="button"
-                      className="btn btn-primary btn-sm d-flex align-items-center"
-                      onClick={() => openPdfModal(c.pdf, c.title)}
-                      aria-controls="certModal"
-                    >
-                      <i className="bi bi-file-earmark-pdf-fill me-2" />
-                      Certificate
-                    </button>
-                  ) : (
-                    <button className="btn btn-secondary btn-sm" disabled>
-                      <i className="bi bi-file-earmark me-2" />
-                      Certificate
-                    </button>
-                  )}
-
-                  {c.verification ? (
-                    <a
-                      href={c.verification}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="btn btn-outline-dark btn-sm d-flex align-items-center"
-                    >
-                      <i className="bi bi-link-45deg me-2" />
-                      Verify
-                    </a>
-                  ) : null}
-                </div>
-              </article>
-            </div>
-          ))}
-        </div>
-
-        {/* MD+: Bootstrap grid */}
-        <div className="row d-none d-md-flex g-4 mt-3">
-          {certificatesData.map((c) => (
-            <div key={c.id} className="col-12 col-md-6 col-lg-4 col-xl-3 d-flex">
-              <article className="certificate-card card shadow-lg h-100 border-0 d-flex flex-column card-hover p-3">
-                <div className="d-flex align-items-start mb-3">
-                  <div className="icon bg-dark text-white rounded-circle d-flex justify-content-center align-items-center me-3">
-                    <i className="bi bi-award-fill fs-4" aria-hidden="true"></i>
-                  </div>
-                  <div className="flex-grow-1">
-                    <h5 className="card-title mb-1">
-                      {c.title}
-                      {c.verification && (
-                        <span className="ms-2" title="Has verification">
-                          <i className="bi bi-patch-check-fill text-primary" />
-                        </span>
-                      )}
-                    </h5>
-                    <small className="text-muted d-block">{c.issuer}</small>
-                    <div className="text-muted small">{c.date}</div>
-                  </div>
-                </div>
-
-                {c.description && <p className="text-secondary small mb-2">{c.description}</p>}
-
-                <div className="mb-3">
-                  <small className="text-muted d-block mb-2">Skills learned</small>
-                  <div className="d-flex flex-wrap gap-1">
-                    {c.skills?.map((s) => (
-                      <span key={s} className="badge bg-secondary" style={{ fontSize: "0.75rem" }}>
-                        {s}
-                      </span>
-                    ))}
-                  </div>
-                </div>
-
-                <div className="mt-auto d-flex gap-2">
-                  {c.pdf ? (
-                    <button
-                      type="button"
-                      className="btn btn-primary btn-sm d-flex align-items-center"
-                      onClick={() => openPdfModal(c.pdf, c.title)}
-                      aria-controls="certModal"
-                    >
-                      <i className="bi bi-file-earmark-pdf-fill me-2" />
-                      Certificate
-                    </button>
-                  ) : (
-                    <button className="btn btn-secondary btn-sm" disabled>
-                      <i className="bi bi-file-earmark me-2" />
-                      Certificate
-                    </button>
-                  )}
-
-                  {c.verification ? (
-                    <a
-                      href={c.verification}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="btn btn-outline-dark btn-sm d-flex align-items-center"
-                    >
-                      <i className="bi bi-link-45deg me-2" />
-                      Verify
-                    </a>
-                  ) : null}
-                </div>
-              </article>
-            </div>
-          ))}
-        </div>
-      </div>
-
-      {/* Modal for PDF viewer */}
-      <div className="modal fade" id="certModal" tabIndex="-1" aria-labelledby="certModalLabel" aria-hidden="true">
-        <div className="modal-dialog modal-xl modal-dialog-centered" style={{ maxWidth: "95%" }}>
-          <div className="modal-content bg-transparent border-0">
-            <div className="modal-header bg-white shadow-sm rounded-top">
-              <h5 className="modal-title" id="certModalLabel">{activeTitle}</h5>
-              <button type="button" className="btn-close" data-bs-dismiss="modal" aria-label="Close" onClick={closePdfModal}></button>
-            </div>
-            <div className="modal-body p-0" style={{ height: "80vh" }}>
-              {activePdf ? (
-                <iframe
-                  title={activeTitle}
-                  src={activePdf}
-                  style={{ width: "100%", height: "100%", border: 0 }}
-                  sandbox="allow-scripts allow-same-origin allow-popups"
-                />
-              ) : (
-                <div className="d-flex align-items-center justify-content-center h-100 bg-white">
-                  <div className="p-4 text-center">No certificate selected.</div>
-                </div>
-              )}
-            </div>
-            <div className="modal-footer bg-white shadow-sm rounded-bottom">
-              <a className="btn btn-outline-primary btn-sm" href={activePdf || "#"} target="_blank" rel="noopener noreferrer">
-                Open in new tab
+              <a
+                href={cert.pdf}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="cert-btn mt-auto w-100"
+              >
+                <i className="bi bi-file-earmark-pdf me-1"></i> View Certificate
               </a>
-              <button type="button" className="btn btn-secondary btn-sm" data-bs-dismiss="modal" onClick={closePdfModal}>
-                Close
-              </button>
             </div>
           </div>
-        </div>
+        ))}
       </div>
 
-      {/* Scoped styles (matching Education/Projects theme) */}
-      <style>
-        {`
-          .certificate-card {
-            opacity: 0;
-            transform: translateY(40px);
-            transition: all 0.8s ease-in-out;
-            width: 100%;
+      <style>{`
+        /* ---------- ON-SCROLL FADE-UP ---------- */
+        .fade-up {
+          opacity: 0;
+          transform: translateY(40px);
+          transition: all 0.65s cubic-bezier(.2,.9,.2,1);
+        }
+        .fade-up.show {
+          opacity: 1;
+          transform: translateY(0);
+        }
+
+        /* ---------- CARD & HOVER ANIMATION ---------- */
+        .certificate-card {
+          /* ensure the hover transform animates smoothly */
+          transition: transform 0.28s ease, box-shadow 0.28s ease;
+          will-change: transform;
+          cursor: default;
+          display: flex; /* ensure h-100 works and button sits at bottom */
+        }
+
+        /* Inner card gets the visual styling; hover lifts the whole card */
+        .certificate-card .card-inner {
+          transition: transform 0.28s ease, box-shadow 0.28s ease;
+          will-change: transform;
+          display: flex;
+          flex-direction: column;
+        }
+
+        /* Hover (mouse) and focus (keyboard) */
+        .certificate-card:hover .card-inner,
+        .certificate-card:focus-within .card-inner {
+          transform: translateY(-8px);
+          box-shadow: 0 12px 30px rgba(0,0,0,0.12);
+        }
+
+        /* Slightly stronger lift on pointer devices when pointer is fine */
+        @media (hover: hover) and (pointer: fine) {
+          .certificate-card:hover .card-inner {
+            transform: translateY(-10px);
           }
-          .certificate-card.visible { opacity: 1; transform: translateY(0); }
+        }
 
-          .card-hover { transition: transform 0.28s ease, box-shadow 0.28s ease; }
-          .card-hover:hover { transform: translateY(-8px); box-shadow: 0 12px 24px rgba(0,0,0,0.12); }
+        /* ---------- BUTTON STYLES ---------- */
+        .cert-btn {
+          background-color: #ffffff;
+          color: #000000;
+          border: 1.5px solid #000000;
+          padding: 10px;
+          border-radius: 10px;
+          text-align: center;
+          display: block;
+          transition: all 0.22s ease-in-out;
+          text-decoration: none;
+        }
 
-          .icon { width: 48px; height: 48px; }
+        .cert-btn:hover,
+        .cert-btn:focus {
+          background-color: #000000;
+          color: #ffffff;
+          border: 1.5px solid #000000;
+        }
 
-          .animate-fade-up { animation: fadeUp 0.9s ease-in-out; }
-          @keyframes fadeUp { from { opacity: 0; transform: translateY(24px); } to { opacity: 1; transform: translateY(0); } }
+        /* ---------- SMALL ACCESSIBILITY TWEAKS ---------- */
+        .certificate-card:focus-within {
+          outline: 3px solid rgba(0,123,255,0.12);
+          outline-offset: 6px;
+        }
 
-          /* Hide scrollbar for vertical scroller on small screens (still scrollable) */
-          .vertical-scroller { -ms-overflow-style: none; scrollbar-width: none; }
-          .vertical-scroller::-webkit-scrollbar { display: none; }
-
-          /* Hide iframe scrollbar on mobile for clean look (still scrollable inside modal) */
-          .modal-body iframe { -ms-overflow-style: none; scrollbar-width: none; }
-          .modal-body iframe::-webkit-scrollbar { display: none; }
-
-          /* Ensure buttons don't wrap awkwardly */
-          .certificate-card .btn { white-space: nowrap; }
-        `}
-      </style>
+        /* Keep layout tidy on very small screens */
+        @media (max-width: 575.98px) {
+          .certificate-card {
+            margin-left: auto;
+            margin-right: auto;
+          }
+        }
+      `}</style>
     </section>
   );
 }

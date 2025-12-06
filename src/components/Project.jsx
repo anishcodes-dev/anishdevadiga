@@ -23,8 +23,7 @@ function Projects() {
       <div className="container">
         <h2 className="fw-bold text-center mb-5 animate-fade-up">Projects</h2>
 
-        {/* SMALL: vertical scrollable column (visible only on xs-sm).
-            Max height set so it becomes scrollable; scrollbar hidden via CSS. */}
+        {/* SMALL: vertical scrollable column (visible only on xs-sm). */}
         <div
           className="d-flex d-md-none flex-column overflow-auto pb-2 vertical-scroller"
           style={{
@@ -37,7 +36,7 @@ function Projects() {
         >
           {projectsData.map((p) => (
             <div key={p.id} style={{ width: "100%" }}>
-              <article className="project-card card shadow-lg h-100 border-0 d-flex flex-column card-hover p-3">
+              <article className="project-card card shadow-lg h-100 border-0 d-flex flex-column card-hover p-3 rounded-4">
                 <div className="d-flex align-items-center mb-3">
                   <div className="icon bg-dark text-white rounded-circle d-flex justify-content-center align-items-center me-3">
                     <i className="bi bi-folder2-open fs-4" aria-hidden="true"></i>
@@ -63,16 +62,30 @@ function Projects() {
 
                 <div className="mt-auto d-flex gap-2">
                   {p.github && (
-                    <a href={p.github} target="_blank" rel="noopener noreferrer" className="btn btn-outline-dark btn-sm d-flex align-items-center">
+                    <a
+                      href={p.github}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="btn btn-outline-dark btn-sm d-flex align-items-center"
+                    >
                       <i className="bi bi-github me-2" />GitHub
                     </a>
                   )}
                   {p.live ? (
-                    <a href={p.live} target="_blank" rel="noopener noreferrer" className="btn btn-primary btn-sm d-flex align-items-center">
+                    <a
+                      href={p.live}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="btn btn-primary btn-sm d-flex align-items-center"
+                    >
                       <i className="bi bi-door-open-fill me-2" />Live
                     </a>
                   ) : (
-                    <button className="btn btn-secondary btn-sm d-flex align-items-center" disabled title="No live link available">
+                    <button
+                      className="btn btn-secondary btn-sm d-flex align-items-center"
+                      disabled
+                      title="No live link available"
+                    >
                       <i className="bi bi-door-open me-2" />Live
                     </button>
                   )}
@@ -82,11 +95,11 @@ function Projects() {
           ))}
         </div>
 
-        {/* MD+: Bootstrap grid */}
-        <div className="row d-none d-md-flex g-4 mt-3">
+        {/* MD+: Bootstrap grid with centered last row */}
+        <div className="row d-none d-md-flex g-4 mt-3 justify-content-center">
           {projectsData.map((p) => (
             <div key={p.id} className="col-12 col-md-6 col-lg-4 col-xl-3 d-flex">
-              <article className="project-card card shadow-lg h-100 border-0 d-flex flex-column card-hover p-3">
+              <article className="project-card card shadow-lg h-100 border-0 d-flex flex-column card-hover p-3 rounded-4">
                 <div className="d-flex align-items-center mb-3">
                   <div className="icon bg-dark text-white rounded-circle d-flex justify-content-center align-items-center me-3">
                     <i className="bi bi-folder2-open fs-4" aria-hidden="true"></i>
@@ -112,16 +125,30 @@ function Projects() {
 
                 <div className="mt-auto d-flex gap-2">
                   {p.github && (
-                    <a href={p.github} target="_blank" rel="noopener noreferrer" className="btn btn-outline-dark btn-sm d-flex align-items-center">
+                    <a
+                      href={p.github}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="btn btn-outline-dark btn-sm d-flex align-items-center"
+                    >
                       <i className="bi bi-github me-2" />GitHub
                     </a>
                   )}
                   {p.live ? (
-                    <a href={p.live} target="_blank" rel="noopener noreferrer" className="btn btn-primary btn-sm d-flex align-items-center">
+                    <a
+                      href={p.live}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="btn btn-primary btn-sm d-flex align-items-center"
+                    >
                       <i className="bi bi-door-open-fill me-2" />Live
                     </a>
                   ) : (
-                    <button className="btn btn-secondary btn-sm d-flex align-items-center" disabled title="No live link available">
+                    <button
+                      className="btn btn-secondary btn-sm d-flex align-items-center"
+                      disabled
+                      title="No live link available"
+                    >
                       <i className="bi bi-door-open me-2" />Live
                     </button>
                   )}
@@ -132,7 +159,7 @@ function Projects() {
         </div>
       </div>
 
-      {/* Scoped styles to match Education theme + hide scrollbar on small vertical scroller */}
+      {/* Scoped styles to match Education theme + center-last-row tweak */}
       <style>
         {`
           .project-card {
@@ -184,6 +211,11 @@ function Projects() {
 
           /* Small spacing tweak so last item doesn't hug bottom edge too much */
           .vertical-scroller > div:last-child { padding-bottom: 0.25rem; }
+
+          /* ensure columns stay flex children so cards stretch and align nicely when centered */
+          .row.justify-content-center > [class*="col-"] {
+            display: flex;
+          }
         `}
       </style>
     </section>

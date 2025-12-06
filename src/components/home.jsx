@@ -3,6 +3,8 @@ import "bootstrap/dist/css/bootstrap.min.css";
 import "bootstrap-icons/font/bootstrap-icons.css";
 import "../index.css";
 import homeData from "../data/home.json";
+import '@coreui/icons/css/all.min.css';
+
 
 function Home() {
   const [displayedName, setDisplayedName] = useState("");
@@ -58,11 +60,11 @@ function Home() {
               {displayedName}
             </h1>
             <h5></h5>
-            <h4 className="text-muted mb-3 fade-in delay-1s">
+            <h4 className="text-greynpm install @fortawesome/react-fontawesome mb-3 fade-in delay-1s">
               {homeData.title}
             </h4>
 
-            <h5 className="text-muted mb-4 fade-in delay-2s">
+            <h5 className="text-grey mb-4 fade-in delay-2s">
               {homeData.description}
             </h5>
 
@@ -104,7 +106,7 @@ function Home() {
                   data-bs-placement="top"
                   title="HackerEarth"
                 >
-                  <i className="bi bi-globe"></i>
+                  <i className="cib-hackerearth"></i>
                 </a>
               )}
               {homeData.hackerrank && (
@@ -117,7 +119,20 @@ function Home() {
                   data-bs-placement="top"
                   title="HackerRank"
                 >
-                  <i className="bi bi-code-slash"></i>
+                  <i class="fa-brands fa-hackerrank"></i>
+                </a>
+              )}
+              {homeData.leetcode && (
+                <a
+                  href={homeData.leetcode}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="text-dark hover-scale"
+                  data-bs-toggle="tooltip"
+                  data-bs-placement="top"
+                  title="leetcode"
+                >
+                  <i className="cib-leetcode"></i>
                 </a>
               )}
             </div>
