@@ -43,9 +43,9 @@ function Experience() {
                   <i className="bi bi-briefcase-fill fs-4"></i>
                 </div>
                 <h5 className="card-title mb-1">{exp.role}</h5>
-                <small className="text-muted mb-2">{exp.company}</small>
+                <small className="text-grey mb-2">{exp.company}</small>
                 <p className="text-secondary mb-1">{exp.duration}</p>
-                <p className="card-text">{exp.description}</p>
+                {/* <p className="card-text">{exp.description}</p> */}
               </div>
             </div>
           ))}

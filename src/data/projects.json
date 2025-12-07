@@ -1,56 +1,31 @@
 [
   {
     "id": "proj-1",
-    "name": "Portfolio Site",
-    "subtitle": "Personal website built with React",
+    "name": "Portfolio",
+    "subtitle": "Personal website built with React , Bootstrap",
     "description": "A modern portfolio site showcasing projects, blog posts and contact info. Responsive, accessible, and Vercel-deployed.",
     "tech": ["React", "Bootstrap", "Vite"],
-    "github": "https://github.com/yourusername/portfolio",
+    "github": "https://github.com/anishcodes-dev/anishdevadiga",
     "live": "https://your-portfolio.vercel.app"
-  },
-  {
-    "id": "proj-2",
-    "name": "Taskify",
-    "subtitle": "A task manager app",
-    "description": "Kanban-style task manager with drag-and-drop, local persistence, and project boards.",
-    "tech": ["React", "TypeScript", "Bootstrap"],
-    "github": "https://github.com/yourusername/taskify",
-    "live": ""
-  },
-  {
-    "id": "proj-3",
-    "name": "WeatherSnap",
-    "subtitle": "Weather dashboard",
-    "description": "A weather dashboard that fetches live data and displays hourly forecasts.",
-    "tech": ["Next.js", "SWR", "Bootstrap"],
-    "github": "https://github.com/yourusername/weathersnap",
-    "live": "https://weathersnap.example.com"
   },
     {
     "id": "proj-1",
-    "name": "Portfolio Site",
-    "subtitle": "Personal website built with React",
-    "description": "A modern portfolio site showcasing projects, blog posts and contact info. Responsive, accessible, and Vercel-deployed.",
-    "tech": ["React", "Bootstrap", "Vite"],
-    "github": "https://github.com/yourusername/portfolio",
-    "live": "https://your-portfolio.vercel.app"
+    "name": "Excel Reader AI",
+    "subtitle": "Excel Reader AI using gemini api",
+    "description": "Excel Reader AI is a Flutter-based web application that enables users to upload Excel files and interact with the content using Google's Gemini AI API.",
+    "tech": ["Flutter", "Firebase", "Gemini API"],
+    "github": "https://github.com/anishdevadiga/anishdrivex",
+    "live": "https://anishdrivex.web.app/"
   },
   {
     "id": "proj-2",
-    "name": "Taskify",
-    "subtitle": "A task manager app",
-    "description": "Kanban-style task manager with drag-and-drop, local persistence, and project boards.",
-    "tech": ["React", "TypeScript", "Bootstrap"],
-    "github": "https://github.com/yourusername/taskify",
+    "name": "Email-Spam-Classifier",
+    "subtitle": "Natural Lanaguage Processing",
+    "description": "Built an NLP-based email spam classifier that analyzes message content and metadata to detect and flag spam with high accuracy.",
+    "tech": ["Python", "NLP"],
+    "github": "https://github.com/anishdevadiga/Email-spam-classifier",
     "live": ""
-  },
-  {
-    "id": "proj-3",
-    "name": "WeatherSnap",
-    "subtitle": "Weather dashboard",
-    "description": "A weather dashboard that fetches live data and displays hourly forecasts.",
-    "tech": ["Next.js", "SWR", "Bootstrap"],
-    "github": "https://github.com/yourusername/weathersnap",
-    "live": "https://weathersnap.example.com"
   }
+ 
+
 ]

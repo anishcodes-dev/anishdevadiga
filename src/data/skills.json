@@ -1,16 +1,16 @@
 [
   {
-    "name": "JavaScript",
-    "icon": "bi-file-code-fill",
-    "category": "Programming Language"
-  },
-  {
     "name": "Python",
     "icon": "bi-file-code-fill",
     "category": "Programming Language"
   },
   {
-    "name": "C++",
+    "name": "JavaScript",
+    "icon": "bi-file-code-fill",
+    "category": "Programming Language"
+  },
+  {
+    "name": "C#",
     "icon": "bi-file-code-fill",
     "category": "Programming Language"
   },
@@ -24,6 +24,11 @@
     "icon": "bi-github",
     "category": "Version Control"
   },
+   {
+    "name": "Git Extension",
+    "icon": "bi-github",
+    "category": "Version Control"
+  },
   {
     "name": "PostgreSQL",
     "icon": "bi-database-fill",
@@ -33,10 +38,14 @@
     "name": "MongoDB",
     "icon": "bi-database-fill",
     "category": "Database"
+  }, {
+    "name": "Google Firebase",
+    "icon": "bi-database-fill",
+    "category": "Database"
   },
-  {
-    "name": "Node.js",
-    "icon": "bi-server",
+   {
+    "name": ".NET Framework",
+    "icon": "bi-bootstrap-fill",
     "category": "Development Stack"
   },
   {
@@ -49,23 +58,47 @@
     "icon": "bi-bootstrap-fill",
     "category": "Development Stack"
   },
-  {
-    "name": "TensorFlow",
+   {
+    "name": "Flutter",
+    "icon": "bi-bootstrap-fill",
+    "category": "Development Stack"
+  },
+   {
+    "name": "Fast API",
     "icon": "bi-braces",
-    "category": "AI/ML Library"
+    "category": "Python Library"
   },
   {
-    "name": "PyTorch",
+    "name": "PyMongo",
     "icon": "bi-braces",
-    "category": "AI/ML Library"
-  },
+    "category": "Python Library"},
   {
-    "name": "scikit-learn",
+    "name": "Streamlit",
+    "icon": "bi-braces",
+    "category": "Python Library"
+  },
+   {
+    "name": "Numpy",
     "icon": "bi-braces",
     "category": "AI/ML Library"
   },
   {
     "name": "Pandas",
+    "icon": "bi-braces",
+    "category": "AI/ML Library"
+  },
+  {
+    "name": "Scikit-learn",
+    "icon": "bi-braces",
+    "category": "AI/ML Library"
+  },
+  {
+    "name": "Seaborn",
+    "icon": "bi-braces",
+    "category": "AI/ML Library"
+  },
+   {
+    "name": "Matplot-Lib",
     "icon": "bi-braces",
     "category": "AI/ML Library"
   }

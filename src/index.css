@@ -247,3 +247,49 @@ a {
     left: -25px;
   }
 }
+
+/* Rotating image animation - fade + scale + slight rotate */
+.rotate-image {
+  opacity: 0;
+  transform: scale(0.96) rotate(-3deg);
+  transition: opacity 0.8s ease, transform 0.8s ease;
+  will-change: opacity, transform;
+}
+
+/* When image is mounted (has src), make it visible.
+   Using attribute selector keeps it simple and reliable across browsers */
+.rotate-image[src] {
+  opacity: 1;
+  transform: scale(1) rotate(0deg);
+}
+
+/* small helper: subtle hover scale applied to links/buttons */
+.hover-scale {
+  transition: transform 0.18s ease, box-shadow 0.18s ease;
+}
+.hover-scale:hover {
+  transform: translateY(-3px) scale(1.02);
+}
+
+/* Optional: keep typewriter font/animation styles if you have them */
+.typewriter {
+  /* example fallback; your existing typewriter CSS can remain */
+}
+
+/* Fade-in utility classes (if you already use them; otherwise they are harmless) */
+.fade-in {
+  opacity: 0;
+  transform: translateY(6px);
+  animation: fadeInUp 0.6s forwards;
+}
+@keyframes fadeInUp {
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+/* allow simple delays via classes */
+.delay-1s { animation-delay: 0.15s; }
+.delay-2s { animation-delay: 0.35s; }
+.delay-3s { animation-delay: 0.55s; }
+.delay-4s { animation-delay: 0.75s; }

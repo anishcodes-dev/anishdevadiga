@@ -22,7 +22,7 @@ function Certificates() {
   }, []);
 
   return (
-    <section className="container py-5 " id="certificates">
+    <section className="container py-5 bg-white " id="certificates">
       <h2 className="fw-bold text-center mb-5 animate-fade-up">Certificates</h2>
 
       <div
@@ -35,7 +35,7 @@ function Certificates() {
             key={cert.id}
             className="col-md-3 col-sm-6 certificate-card fade-up"
           >
-            <div className="card h-100 p-3 shadow-sm border-0 bg-white text-black rounded-4 card-inner">
+            <div className="card shadow-lg h-100 border-0 p-3 bg-white text-black rounded-4 card-inner">
               <div className="d-flex align-items-center mb-3">
                 <i
                   className={`bi bi-${cert.icon} me-2`}

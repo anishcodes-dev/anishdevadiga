@@ -5,10 +5,20 @@ import "../index.css";
 import homeData from "../data/home.json";
 import '@coreui/icons/css/all.min.css';
 
-
 function Home() {
+  // Typewriter state
   const [displayedName, setDisplayedName] = useState("");
   const typingSpeed = 120; // ms per character
+
+  // Images for rotation (put these files in /public/assets/)
+  const images = [
+    "/assets/profile2.png",
+    "/assets/convocation.jpeg",
+    "/assets/profile.png",
+  ];
+
+  // Current rotating image index
+  const [currentImage, setCurrentImage] = useState(0);
 
   // Typewriter effect for name
   useEffect(() => {
@@ -23,7 +33,17 @@ function Home() {
     }, typingSpeed);
 
     return () => clearInterval(interval);
-  }, []);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, []); // run once
+
+  // Rotate images every 3 seconds
+  useEffect(() => {
+    const interval = setInterval(() => {
+      setCurrentImage((prev) => (prev + 1) % images.length);
+    }, 2000); // 3000ms = 3s
+
+    return () => clearInterval(interval);
+  }, [images.length]);
 
   return (
     <section
@@ -32,23 +52,35 @@ function Home() {
     >
       <div className="container py-3">
         <div className="row align-items-center gy-5">
-          {/* Left side - Profile Image */}
+          {/* Left side - Rotating Profile Images */}
           <div className="col-md-5 d-flex justify-content-center animate-fade-up">
-            <img
-              src="/assets/profile.png"
-              alt="Profile"
-              className="img-fluid shadow-lg"
+            <div
               style={{
                 width: "450px",
                 height: "450px",
                 maxWidth: "80%",
-                aspectRatio: "1 / 1",
-                borderRadius: "50%",
-                objectFit: "cover",
-                objectPosition: "center top",
-                boxShadow: "0 5px 20px rgba(0,0,0,0.1)",
+                position: "relative",
               }}
-            />
+            >
+              {/* key forces remount so CSS transition runs on each image change */}
+              <img
+                key={currentImage}
+                src={images[currentImage]}
+                alt={`Profile ${currentImage + 1}`}
+                className="img-fluid shadow-lg rotate-image"
+                style={{
+                  width: "100%",
+                  height: "100%",
+                  aspectRatio: "1 / 1",
+                  borderRadius: "50%",
+                  objectFit: "cover",
+                  objectPosition: "center top",
+                  position: "absolute",
+                  top: 0,
+                  left: 0,
+                }}
+              />
+            </div>
           </div>
 
           {/* Right side - Info */}
@@ -59,8 +91,8 @@ function Home() {
             >
               {displayedName}
             </h1>
-            <h5></h5>
-            <h4 className="text-greynpm install @fortawesome/react-fontawesome mb-3 fade-in delay-1s">
+
+            <h4 className="text-grey mb-3 fade-in delay-1s">
               {homeData.title}
             </h4>
 
@@ -80,7 +112,7 @@ function Home() {
                   data-bs-placement="top"
                   title="GitHub"
                 >
-                  <i className="bi bi-github"></i>
+                  <i className="cib-github" style={{ fontSize: "1em" }}></i>
                 </a>
               )}
               {homeData.linkedin && (
@@ -93,10 +125,10 @@ function Home() {
                   data-bs-placement="top"
                   title="LinkedIn"
                 >
-                  <i className="bi bi-linkedin"></i>
+                  <i className="cib-linkedin" style={{ fontSize: "1em" }}></i>
                 </a>
               )}
-              {homeData.hackerearth && (
+              {/* {homeData.hackerearth && (
                 <a
                   href={homeData.hackerearth}
                   target="_blank"
@@ -106,7 +138,7 @@ function Home() {
                   data-bs-placement="top"
                   title="HackerEarth"
                 >
-                  <i className="cib-hackerearth"></i>
+                  <i className="cib-hackerearth" style={{ fontSize: "1em" }}></i>
                 </a>
               )}
               {homeData.hackerrank && (
@@ -119,7 +151,7 @@ function Home() {
                   data-bs-placement="top"
                   title="HackerRank"
                 >
-                  <i class="fa-brands fa-hackerrank"></i>
+                  <i className="cib-hackerrank" style={{ fontSize: "1em" }}></i>
                 </a>
               )}
               {homeData.leetcode && (
@@ -130,11 +162,24 @@ function Home() {
                   className="text-dark hover-scale"
                   data-bs-toggle="tooltip"
                   data-bs-placement="top"
-                  title="leetcode"
+                  title="LeetCode"
                 >
-                  <i className="cib-leetcode"></i>
+                  <i class="cib-leetcode" style={{ fontSize: "1em" }}></i>
                 </a>
               )}
+              {homeData.kaggle && (
+                <a
+                  href={homeData.leetcode}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="text-dark hover-scale"
+                  data-bs-toggle="tooltip"
+                  data-bs-placement="top"
+                  title="LeetCode"
+                >
+                  <i class="cib-kaggle" style={{ fontSize: "1em" }}></i>
+                </a>
+              )} */}
             </div>
 
             {/* Resume Button */}

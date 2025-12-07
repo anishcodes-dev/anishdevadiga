@@ -113,7 +113,7 @@ function Projects() {
                 {p.description && <p className="text-secondary small mb-3">{p.description}</p>}
 
                 <div className="mb-3">
-                  <small className="text-muted d-block mb-2">Tech stack</small>
+                  <small className="text-gray d-block mb-2">Tech stack</small>
                   <div className="d-flex flex-wrap gap-1">
                     {p.tech?.map((t) => (
                       <span key={t} className="badge bg-secondary" style={{ fontSize: "0.75rem" }}>

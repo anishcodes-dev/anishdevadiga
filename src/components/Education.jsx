@@ -43,7 +43,7 @@ function Education() {
                   <i className="bi bi-mortarboard-fill fs-4"></i>
                 </div>
                 <h5 className="card-title mb-1">{edu.degree}</h5>
-                <small className="text-muted mb-2">{edu.institution}</small>
+                <small className="text-grey mb-2">{edu.institution}</small>
                 <p className="text-secondary mb-1">{edu.year}</p>
                 <p className="card-text small">{edu.marks}</p>
               </div>

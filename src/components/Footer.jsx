@@ -7,7 +7,7 @@ export default function Footer() {
   const linkedinUrl = "https://www.linkedin.com/in/yourprofile";
   const githubUrl = "https://github.com/yourusername";
   const phoneNumber = "+91-8884847150";
-  const email = "youremail@gmail.com";
+  const email = "anishkdevadiga2002@gmail.com";
 
   return (
     <footer className="footer bg-black text-white pt-5 pb-3">
@@ -56,16 +56,17 @@ export default function Footer() {
           {/* Column 3 */}
           <div className="col-12 col-md-4 text-start">
             <h6 className="fw-semibold mb-3">Contact Me</h6>
-
+            <i className="cis-mail"></i>
             <a
               href={`mailto:${email}?subject=Hello%20Ani`}
               className="contact-link d-block mb-2"
             >
+              <i className="bi bi-envelope-fill me-2 text-white"></i>
               {email}
             </a>
 
             <a href={`tel:${phoneNumber}`} className="contact-link d-block">
-              {phoneNumber}
+              <i className="bi bi-telephone-fill me-2 text-white"></i>{phoneNumber}
             </a>
           </div>
         </div>
