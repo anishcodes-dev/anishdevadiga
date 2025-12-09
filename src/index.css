@@ -293,3 +293,133 @@ a {
 .delay-2s { animation-delay: 0.35s; }
 .delay-3s { animation-delay: 0.55s; }
 .delay-4s { animation-delay: 0.75s; }
+
+/* --------------------------
+   General / utilities
+   -------------------------- */
+:root{
+  --profile-min: 140px;   /* smallest allowed size on very small phones */
+  --profile-pref: 34vw;   /* preferred size relative to viewport */
+  --profile-max: 360px;   /* max size on large screens */
+}
+
+/* Typewriter and small fades (kept lightweight) */
+.typewriter {
+  white-space: nowrap;
+  overflow: hidden;
+}
+
+/* small fade-in utility classes referenced in JSX (you may already have these) */
+.fade-in {
+  animation: fadeIn 600ms ease forwards;
+  opacity: 0;
+}
+.delay-1s { animation-delay: .15s; }
+.delay-2s { animation-delay: .3s; }
+.delay-3s { animation-delay: .45s; }
+.delay-4s { animation-delay: .6s; }
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(6px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+/* hover scale for icons / buttons */
+.hover-scale {
+  transition: transform 180ms ease, opacity 160ms ease;
+}
+.hover-scale:hover {
+  transform: translateY(-3px) scale(1.03);
+}
+
+/* --------------------------
+   Profile image: always square
+   - Uses clamp() so size is fluid:
+     clamp(min, preferred, max).
+   - Height is set equal to width so the box is always square.
+   -------------------------- */
+.profile-wrapper {
+  /* width is fluid between min and max, based on viewport */
+  width: clamp(var(--profile-min), var(--profile-pref), var(--profile-max));
+  /* height equal to width => perfect square */
+  height: clamp(var(--profile-min), var(--profile-pref), var(--profile-max));
+
+  /* keep it circular visually */
+  border-radius: 50%;
+  overflow: hidden;
+  position: relative;
+
+  /* optional visual styling */
+  box-shadow: 0 12px 30px rgba(15, 23, 42, 0.12);
+  display: inline-block;
+}
+
+/* The image fills the square, maintaining aspect ratio */
+.profile-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;       /* preserves aspect ratio, crops to fill */
+  object-position: center top;
+  display: block;
+  border-radius: 50%;
+  /* animate on mount / change */
+  animation: profileFade 420ms ease;
+}
+
+/* small entrance animation for each image change (keying img causes remount) */
+@keyframes profileFade {
+  from { opacity: 0; transform: scale(1.03); }
+  to   { opacity: 1; transform: scale(1); }
+}
+
+/* optional rotate-image class if you want transform-based effects */
+.rotate-image {
+  will-change: transform, opacity;
+  transition: transform 600ms cubic-bezier(.2,.9,.3,1), opacity 420ms ease;
+}
+
+/* responsive adjustments (if you want further control) */
+@media (max-width: 992px) {
+  :root { --profile-pref: 38vw; } /* slightly larger proportion on medium screens */
+}
+@media (max-width: 576px) {
+  :root { --profile-pref: 46vw; } /* use more of the viewport width on small phones */
+  /* you can also raise min size if needed: */
+  /* --profile-min: 120px; */
+}
+
+/* --------------------------
+   Small helpers so the image never overflows its column on mobile
+   -------------------------- */
+@media (max-width: 768px) {
+  .profile-wrapper {
+    margin-bottom: 0.25rem;
+  }
+}
+
+/* --------------------------
+   Optional: make sure container rows spacing looks good
+   -------------------------- */
+#home {
+  /* You can tweak padding for small screens if necessary */
+  padding-top: 3.25rem;
+  padding-bottom: 3.25rem;
+}
+
+/* --------------------------
+   Tooltips (Bootstrap provides support; these are small niceties)
+   -------------------------- */
+a[data-bs-toggle="tooltip"] {
+  text-decoration: none;
+}
+
+/* --------------------------
+   Minor accessibility/visual tweaks
+   -------------------------- */
+.btn.btn-dark {
+  border-radius: 12px;
+}
+
+/* end of index.css */
+
+

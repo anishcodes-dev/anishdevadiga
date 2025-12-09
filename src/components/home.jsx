@@ -36,11 +36,11 @@ function Home() {
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []); // run once
 
-  // Rotate images every 3 seconds
+  // Rotate images every 2 seconds
   useEffect(() => {
     const interval = setInterval(() => {
       setCurrentImage((prev) => (prev + 1) % images.length);
-    }, 2000); // 3000ms = 3s
+    }, 2000);
 
     return () => clearInterval(interval);
   }, [images.length]);
@@ -54,31 +54,13 @@ function Home() {
         <div className="row align-items-center gy-5">
           {/* Left side - Rotating Profile Images */}
           <div className="col-md-5 d-flex justify-content-center animate-fade-up">
-            <div
-              style={{
-                width: "450px",
-                height: "450px",
-                maxWidth: "80%",
-                position: "relative",
-              }}
-            >
-              {/* key forces remount so CSS transition runs on each image change */}
+            <div className="profile-wrapper">
+              {/* key forces remount so CSS animation runs on each image change */}
               <img
                 key={currentImage}
                 src={images[currentImage]}
                 alt={`Profile ${currentImage + 1}`}
-                className="img-fluid shadow-lg rotate-image"
-                style={{
-                  width: "100%",
-                  height: "100%",
-                  aspectRatio: "1 / 1",
-                  borderRadius: "50%",
-                  objectFit: "cover",
-                  objectPosition: "center top",
-                  position: "absolute",
-                  top: 0,
-                  left: 0,
-                }}
+                className="profile-img rotate-image"
               />
             </div>
           </div>
@@ -128,58 +110,6 @@ function Home() {
                   <i className="cib-linkedin" style={{ fontSize: "1em" }}></i>
                 </a>
               )}
-              {/* {homeData.hackerearth && (
-                <a
-                  href={homeData.hackerearth}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="text-dark hover-scale"
-                  data-bs-toggle="tooltip"
-                  data-bs-placement="top"
-                  title="HackerEarth"
-                >
-                  <i className="cib-hackerearth" style={{ fontSize: "1em" }}></i>
-                </a>
-              )}
-              {homeData.hackerrank && (
-                <a
-                  href={homeData.hackerrank}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="text-dark hover-scale"
-                  data-bs-toggle="tooltip"
-                  data-bs-placement="top"
-                  title="HackerRank"
-                >
-                  <i className="cib-hackerrank" style={{ fontSize: "1em" }}></i>
-                </a>
-              )}
-              {homeData.leetcode && (
-                <a
-                  href={homeData.leetcode}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="text-dark hover-scale"
-                  data-bs-toggle="tooltip"
-                  data-bs-placement="top"
-                  title="LeetCode"
-                >
-                  <i class="cib-leetcode" style={{ fontSize: "1em" }}></i>
-                </a>
-              )}
-              {homeData.kaggle && (
-                <a
-                  href={homeData.leetcode}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="text-dark hover-scale"
-                  data-bs-toggle="tooltip"
-                  data-bs-placement="top"
-                  title="LeetCode"
-                >
-                  <i class="cib-kaggle" style={{ fontSize: "1em" }}></i>
-                </a>
-              )} */}
             </div>
 
             {/* Resume Button */}
