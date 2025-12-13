@@ -110,6 +110,19 @@ function Home() {
                   <i className="cib-linkedin" style={{ fontSize: "1em" }}></i>
                 </a>
               )}
+              {homeData.kaggle && (
+                <a
+                  href={homeData.kaggle}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="text-dark hover-scale"
+                  data-bs-toggle="tooltip"
+                  data-bs-placement="top"
+                  title="Kaggle"
+                >
+                  <i className="cib-kaggle" style={{ fontSize: "1em" }}></i>
+                </a>
+              )}
             </div>
 
             {/* Resume Button */}

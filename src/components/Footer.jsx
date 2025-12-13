@@ -74,7 +74,7 @@ export default function Footer() {
         <hr className="my-4 border-secondary" />
 
         <div className="text-start small text-muted">
-          &copy; {new Date().getFullYear()} Ani — All rights reserved.
+          &copy; {new Date().getFullYear()} Anish — All rights reserved.
         </div>
       </div>
 
