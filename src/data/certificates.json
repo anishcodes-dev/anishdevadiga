@@ -1,12 +1,44 @@
 [
   {
     "id": 1,
-    "title": "JavaScript Foundations",
-    "description": "A foundational course covering modern JavaScript concepts including ES6, DOM manipulation, functions, and core programming principles.",
-    "issuer": "Coursera",
-    "date": "2024",
+    "title": "Python for Data Science, AI & Development",
+    "description": "Develop core Python skills—from basic syntax to data structures, functions, OOP, Pandas/Numpy, Jupyter Notebook usage, and extracting web data via REST APIs and BeautifulSoup.",
+    "issuer": "IBM",
+    "date": "July 12, 2024",
     "icon": "book",
-    "pdf": "/assets/certificates/js-foundation.pdf",
-    "skills": ["JavaScript", "ES6", "DOM"]
+    "pdf": "/assets/certifcate1.pdf",
+    "skills": ["Python","Data Structures", "Numpy", "Pandas","BeautifulSoup","Data Manipulation","REST API"]
+  },
+    {
+    "id": 2,
+    "title": "Generative AI Prompt Engineering Basics",
+    "description": "Explain prompt engineering in generative AI, apply best practices and techniques, and evaluate common tools for creating effective prompts.",
+    "issuer": "IBM",
+    "date": "May 18, 2024",
+    "icon": "book",
+    "pdf": "/assets/certificate2.pdf",
+    "skills": ["ChatGPT","Generative AI", "Prompt Engineering", "Prompt Patterns"]
+  },
+   {
+    "id": 3,
+    "title": "Programming with Generative AI",
+    "description": "Use AI-powered coding tools like GitHub Copilot to enhance development efficiency and creativity.",
+    "issuer": "IIT Guwahati",
+    "date": "July 17, 2024",
+    "icon": "book",
+    "pdf": "/assets/certificate3.pdf",
+    "skills": ["Github Copilot","Generative AI","Prompt Engineering", "Programming"]
+  }, {
+    "id": 4,
+    "title": "Machine Learning with Apache Spark",
+    "description": "End-to-end overview of ML, generative AI, Spark, data analysis, ML pipelines, and model building with evaluation and persistence.",
+    "issuer": "IBM",
+    "date": "October 27, 2024",
+    "icon": "book",
+    "pdf": "/assets/certificate4.pdf",
+    "skills": ["Machine Learning","Data Processing", "ETL", "Apache Spark","Apache Hadoop"]
   }
+  
+
+
 ]
