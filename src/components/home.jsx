@@ -12,7 +12,7 @@ function Home() {
 
   // Images for rotation (put these files in /public/assets/)
   const images = [
-    "/assets/profile2.png",
+    
     "/assets/convocation.jpeg",
     "/assets/profile.png",
   ];

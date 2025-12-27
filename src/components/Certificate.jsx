@@ -17,13 +17,14 @@ function Certificates() {
 
     items.forEach((item) => observer.observe(item));
 
-    // cleanup
     return () => observer.disconnect();
   }, []);
 
   return (
-    <section className="container py-5 bg-white " id="certificates">
-      <h2 className="fw-bold text-center mb-5 animate-fade-up">Certificates</h2>
+    <section className="container py-5 bg-white" id="certificates">
+      <h2 className="fw-bold text-center mb-5 animate-fade-up">
+        Certificates
+      </h2>
 
       <div
         className={`row g-4 justify-content-${
@@ -33,7 +34,7 @@ function Certificates() {
         {certificatesData.map((cert) => (
           <div
             key={cert.id}
-            className="col-md-3 col-sm-6 certificate-card fade-up"
+            className="col-lg-3 col-md-4 col-sm-6 certificate-card fade-up"
           >
             <div className="card shadow-lg h-100 border-0 p-3 bg-white text-black rounded-4 card-inner">
               <div className="d-flex align-items-center mb-3">
@@ -44,7 +45,9 @@ function Certificates() {
                 <h5 className="mb-0 fw-bold">{cert.title}</h5>
               </div>
 
-              <p className="text-secondary small">{cert.description}</p>
+              <p className="text-secondary small">
+                {cert.description}
+              </p>
 
               <p className="mb-1">
                 <strong>Issuer:</strong> {cert.issuer}
@@ -70,7 +73,8 @@ function Certificates() {
                 rel="noopener noreferrer"
                 className="cert-btn mt-auto w-100"
               >
-                <i className="bi bi-file-earmark-pdf me-1"></i> View Certificate
+                <i className="bi bi-file-earmark-pdf me-1"></i>
+                View Certificate
               </a>
             </div>
           </div>
@@ -91,14 +95,12 @@ function Certificates() {
 
         /* ---------- CARD & HOVER ANIMATION ---------- */
         .certificate-card {
-          /* ensure the hover transform animates smoothly */
           transition: transform 0.28s ease, box-shadow 0.28s ease;
           will-change: transform;
           cursor: default;
-          display: flex; /* ensure h-100 works and button sits at bottom */
+          display: flex;
         }
 
-        /* Inner card gets the visual styling; hover lifts the whole card */
         .certificate-card .card-inner {
           transition: transform 0.28s ease, box-shadow 0.28s ease;
           will-change: transform;
@@ -106,14 +108,12 @@ function Certificates() {
           flex-direction: column;
         }
 
-        /* Hover (mouse) and focus (keyboard) */
         .certificate-card:hover .card-inner,
         .certificate-card:focus-within .card-inner {
           transform: translateY(-8px);
           box-shadow: 0 12px 30px rgba(0,0,0,0.12);
         }
 
-        /* Slightly stronger lift on pointer devices when pointer is fine */
         @media (hover: hover) and (pointer: fine) {
           .certificate-card:hover .card-inner {
             transform: translateY(-10px);
@@ -140,13 +140,12 @@ function Certificates() {
           border: 1.5px solid #000000;
         }
 
-        /* ---------- SMALL ACCESSIBILITY TWEAKS ---------- */
+        /* ---------- ACCESSIBILITY ---------- */
         .certificate-card:focus-within {
           outline: 3px solid rgba(0,123,255,0.12);
           outline-offset: 6px;
         }
 
-        /* Keep layout tidy on very small screens */
         @media (max-width: 575.98px) {
           .certificate-card {
             margin-left: auto;
