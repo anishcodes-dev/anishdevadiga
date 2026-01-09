@@ -127,7 +127,7 @@ function Home() {
 
             {/* Resume Button */}
             <a
-              href="/assets/Resume.pdf#view=FitH"
+              href="/assets/resume.pdf#view=FitH"
               target="_blank"
               rel="noopener noreferrer"
               className="btn btn-dark px-4 py-2 shadow hover-scale fade-in delay-4s"
